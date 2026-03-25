@@ -45,3 +45,57 @@ function filterCategory(cat) {
 
 // Səhifə yüklənəndə məhsulları gətir
 window.onload = () => displayProducts(products);
+
+// Axtarış funksiyası
+function searchProducts() {
+    const searchTerm = document.getElementById('searchInput').value.toLowerCase(); // Yazılan mətni kiçik hərflərə çeviririk
+    const filteredProducts = products.filter(product => 
+        product.name.toLowerCase().includes(searchTerm) // Məhsul adında axtarış sözü varmı?
+    );
+
+    // Başlığı yeniləyək
+    const pageTitle = document.getElementById('pageTitle');
+    if (searchTerm === "") {
+        pageTitle.innerText = "Hamısı";
+    } else {
+        pageTitle.innerText = `Axtarış nəticəsi: "${searchTerm}"`;
+    }
+
+    // Əgər məhsul tapılmasa, mesaj göstərək
+    if (filteredProducts.length === 0) {
+        document.getElementById('productGrid').innerHTML = `<p style="padding: 20px;">Təəssüf ki, "${searchTerm}" üzrə məhsul tapılmadı.</p>`;
+    } else {
+        displayProducts(filteredProducts); // Tapılanları ekrana çıxar
+    }
+}
+
+// Düyməyə klik hadisəsini dinləmək (HTML-də onclick yoxdursa)
+document.querySelector('.search-box button').addEventListener('click', searchProducts);
+
+// Enter düyməsi ilə axtarış imkanı
+document.getElementById('searchInput').addEventListener('keypress', function (e) {
+    if (e.key === 'Enter') {
+        searchProducts();
+    }
+});
+
+const cartButton = document.getElementById('cartButton');
+const cartDropdown = document.getElementById('cartDropdown');
+
+// Səbət düyməsinə klikləyəndə
+cartButton.addEventListener('click', (e) => {
+    e.stopPropagation(); // Klik hadisəsinin yayılmasını dayandırır
+    cartDropdown.classList.toggle('active');
+});
+
+// Səhifənin istənilən yerinə klikləyəndə səbəti bağla
+window.addEventListener('click', () => {
+    if (cartDropdown.classList.contains('active')) {
+        cartDropdown.classList.remove('active');
+    }
+});
+
+// Səbət pəncərəsinin özünə klikləyəndə bağlanmasın
+cartDropdown.addEventListener('click', (e) => {
+    e.stopPropagation();
+});
