@@ -1,0 +1,132 @@
+/* Rəng dəyişənləri */
+:root {
+    --primary: #003d88;
+    --accent: #ffcc00;
+    --bg-color: #f8f9fa;
+    --card-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: var(--bg-color);
+}
+
+/* Header & Nav */
+header {
+    background: var(--primary);
+    padding: 1rem 5%;
+    color: white;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 2rem;
+    font-weight: 900;
+    color: white;
+    text-decoration: none;
+}
+
+.search-box input {
+    padding: 10px;
+    width: 300px;
+    border: none;
+    border-radius: 5px 0 0 5px;
+}
+
+.search-box button {
+    padding: 10px;
+    background: var(--accent);
+    border: none;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+/* Layout */
+.main-container {
+    display: flex;
+    padding: 20px 5%;
+    gap: 30px;
+}
+
+.sidebar {
+    flex: 1;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    height: fit-content;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar li {
+    padding: 12px;
+    cursor: pointer;
+    border-bottom: 1px solid #eee;
+    transition: 0.2s;
+}
+
+.sidebar li:hover {
+    background: #f0f0f0;
+    color: var(--primary);
+    font-weight: bold;
+}
+
+/* Məhsul Kartları */
+.content { flex: 4; }
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.card {
+    background: white;
+    border-radius: 10px;
+    padding: 15px;
+    text-align: center;
+    box-shadow: var(--card-shadow);
+    transition: transform 0.3s;
+}
+
+.card:hover { transform: translateY(-5px); }
+
+.card img {
+    max-width: 100%;
+    height: 150px;
+    object-fit: contain;
+}
+
+.price {
+    font-size: 1.2rem;
+    color: var(--primary);
+    font-weight: bold;
+    display: block;
+    margin: 10px 0;
+}
+
+.buy-btn {
+    background: var(--primary);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+}
+
+.buy-btn:hover { background: #002a5e; }

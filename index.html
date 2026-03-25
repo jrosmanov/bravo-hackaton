@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bravo Market | Online</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <div class="navbar">
+            <a href="#" class="logo">BRAVO</a>
+            <div class="search-box">
+                <input type="text" id="searchInput" placeholder="Məhsul və ya brend axtar...">
+                <button>Axtar</button>
+            </div>
+            <div class="cart-info">
+                <span id="cart-icon">🛒 Səbət (<span id="cart-count">0</span>)</span>
+            </div>
+        </div>
+    </header>
+
+    <div class="main-container">
+        <aside class="sidebar">
+            <h3>Kateqoriyalar</h3>
+            <ul id="categoryList">
+                <li onclick="filterCategory('Hamısı')">Hamısı</li>
+                <li onclick="filterCategory('Meyvə')">Meyvə & Tərəvəz</li>
+                <li onclick="filterCategory('Süd')">Süd Məhsulları</li>
+                <li onclick="filterCategory('İçki')">İçkilər</li>
+            </ul>
+        </aside>
+
+        <main class="content">
+            <h2 id="pageTitle">Həftənin Təklifləri</h2>
+            <div class="product-grid" id="productGrid">
+                </div>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
