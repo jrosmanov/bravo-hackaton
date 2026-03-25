@@ -1,6 +1,6 @@
 /* Rəng dəyişənləri */
 :root {
-    --primary: #003d88;
+    --primary: #028400;
     --accent: #ffcc00;
     --bg-color: #f8f9fa;
     --card-shadow: 0 4px 15px rgba(0,0,0,0.1);
@@ -129,4 +129,4 @@ header {
     width: 100%;
 }
 
-.buy-btn:hover { background: #002a5e; }
+.buy-btn:hover { background: #012800; }
